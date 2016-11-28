@@ -1,5 +1,5 @@
 <?php  
-class ProductController extends  CI_Controller{
+class Product extends  CI_Controller{
 	 function __construct(){
 		parent::__construct();
 		$this->load->model('ProductModel');
@@ -9,7 +9,7 @@ class ProductController extends  CI_Controller{
 	function index(){
 		$product = $this->ProductModel->get_product();
 		$data = array();
-		$data['product'] = $product;
+		$data['products'] = $product;
 
 		$this->load->view('product',$data);
 	}

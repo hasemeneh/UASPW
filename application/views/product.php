@@ -35,7 +35,7 @@
 				<li><a href="contact.php">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<li><a href="<?php echo base_url().""; ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			</ul>
 		</div>
@@ -44,12 +44,17 @@
 
 <div class="container-fluid">
 	<div class="row"> 
-		
+		<?php
+			foreach ($products as $product) {
+				// echo "".;
+			
+
+		?>
 		<div class="col-sm-4">
 			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-
+				<div class="panel-heading"><?php echo "".$product->name; ?></div>
+				<div class="panel-body"><img src='<?php echo "".$product->image; ?>' class="img-responsive" style="width:100%" alt="Image"></div>
+				<div class="panel-footer">Rp <?php echo "".$product->price; ?>-
 					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
 					<span class="glyphicon glyphicon-plus-sign"></span>
 					<span class="glyphicon glyphicon-shopping-cart "></span>
@@ -58,245 +63,9 @@
 				</div>
 			</div>
 		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-		
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
-	 
-		<div class="col-sm-4">
-			<div class="panel panel-primary">
-				<div class="panel-heading">BLACK FRIDAY DEAL</div>
-				<div class="panel-body"><img src="image.png" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Rp123456789,00-	
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-						<span class="glyphicon glyphicon-shopping-cart "></span>
-						Add to Cart
-					</a>
-				</div>
-			</div>
-		</div>
+	 	<?php
+	 		}
+	 	?>
 	</div>
 </div>
 <br>

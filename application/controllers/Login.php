@@ -1,5 +1,5 @@
 <?php  
-class LoginController extends  CI_Controller{
+class Login extends  CI_Controller{
 	 function __construct(){
 		parent::__construct();
 		$this->load->model('UserModel');
@@ -20,7 +20,7 @@ class LoginController extends  CI_Controller{
 		// $user_data=$this->UserModel->login($username,$password);
 		if($user_data=$this->UserModel->login($username,$password)){
 			$this->session->set_userdata('logged_in', $user_data);
-			redirect("LoginController");
+			redirect("Product");
 		}else{
 			echo "failed to login please re-login to <a href='".base_url()."index.php/Login'>login</a>";
 		}
@@ -32,14 +32,14 @@ class LoginController extends  CI_Controller{
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
 		$this->UserModel->insert($username,$password,$email);
-		redirect("crud");
+		redirect("Product");
 	}
 	
 	public function do_logout()
 	{
 		$this->session->unset_userdata('logged_in');
    		session_destroy();
-   		redirect('crud');
+   		redirect('Product');
    	}
 
 
