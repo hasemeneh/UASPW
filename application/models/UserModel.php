@@ -17,7 +17,7 @@ class UserModel extends CI_Model {
 		   	$result = $query->result();
 			$result_data = array();
 			$result_data['username'] = $result[0]->username;
-			$result_data['role'] = $result[0]->role;
+			$result_data['level'] = $result[0]->level;
 			return $result_data;
 		}
 	   	else

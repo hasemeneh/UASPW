@@ -10,7 +10,7 @@ class Product extends  CI_Controller{
 		$product = $this->ProductModel->get_product();
 		$data = array();
 		$data['products'] = $product;
-
+		$data['user_data'] = $this->session->userdata('logged_in');
 		$this->load->view('product',$data);
 	}
 	public function addProduct()

@@ -35,7 +35,18 @@
 				<li><a href="contact.php">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?php echo base_url().""; ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<?php 
+					if(isset($user_data)){
+						?>
+						<li><a href="<?php echo base_url()."index.php/Login/do_logout"; ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						<?php
+					}else{
+						?>
+						<li><a href="<?php echo base_url()."index.php/Login"; ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<?php
+					}
+				?>
+
 				<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			</ul>
 		</div>
