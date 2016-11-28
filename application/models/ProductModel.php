@@ -5,7 +5,7 @@ class TimelineModel extends CI_Model {
 		$this->load->database();
 	}
 	public function get_product($page=1){
-		$this->db->select('id,name,size_availability,price,description,material')->from('t_product')->order_by('name','asc')->(10,$page);
+		$this->db->select('id,name,size_availability,price,description,material,image,status_pembayaran,status_pengiriman')->from('t_product')->order_by('name','asc')->(10,$page);
 		$result_data = array();
 		$result = $this->db->get()->result();
 		foreach ($result as $key => $value) {

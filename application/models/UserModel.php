@@ -6,26 +6,38 @@ class UserModel extends CI_Model {
 	}
 	public function login($username, $password)
 	{
-   		$this -> db -> select('id, username, password');
-   		$this -> db -> from('users');
+   		$this -> db -> select('id, username,level');
+   		$this -> db -> from('user');
    		$this -> db -> where('username', $username);
-	   	$this -> db -> where('password', MD5($password));
-	   	$this -> db -> limit(1);
+	   	$this -> db -> where('password', $password);
 	 
 	   	$query = $this -> db -> get();
-	 
 	   	if($query -> num_rows() == 1)
 	   	{
-	   	  return $query->result();
-	   	}
+		   	$result = $query->result();
+			$result_data = array();
+			$result_data['username'] = $result[0]->username;
+			$result_data['role'] = $result[0]->role;
+			return $result_data;
+		}
 	   	else
 	   	{
 	   	  return false;
 	   	}
  	}
- 	public function do_login($username,$password)
+
+ 	public function get_user($username)
  	{
- 		
+ 		$this -> db -> select('id,username,level');
+ 		$this -> db -> from('user');
+   		$this -> db -> where('username', $username);
+   		$query -> db -> get();
+   		if($query -> num_rows() == 1)
+   		{
+   			return $query->result();
+   		}else{
+   			return false;
+   		}
  	}
 }
 
