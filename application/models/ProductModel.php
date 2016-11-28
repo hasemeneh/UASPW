@@ -5,7 +5,7 @@ class ProductModel extends CI_Model {
 		$this->load->database();
 	}
 	public function get_product($page=1){
-		$this->db->select('id,name,size_availability,price,description,material,image,status_pembayaran,status_pengiriman')->from('t_product')->order_by('name','asc')->(10,$page);
+		$this->db->select('id,name,size_availability,price,description,material,image')->from('t_product')->order_by('name','asc')->limit(10,$page);
 		$result_data = array();
 		$result = $this->db->get()->result();
 		foreach ($result as $key => $value) {
@@ -16,8 +16,8 @@ class ProductModel extends CI_Model {
 	public function replace_data($name,$size_availability,$price,$description,$material,$id='NULL')
 	{
 		
-		$this->db->query("REPLACE INTO `t_product` (`id`, `name`, `size_availability`, `price`, `description`, `material`) VALUES (".$id.", '".$name."', '".$size_availability."', '"$price"', '".$description."', '".$material."');");
-		redirect("");
+		$this->db->query("REPLACE INTO `t_product` (`id`, `name`, `size_availability`, `price`, `description`, `material`) VALUES (".$id.", '".$name."', '".$size_availability."', '".$price."', '".$description."', '".$material."');");
+		redirect("ProductController");
 	}
 }
 
