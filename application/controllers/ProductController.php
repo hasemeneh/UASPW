@@ -1,13 +1,14 @@
 <?php  
-class LoginController extends  CI_Controller{
+class ProductController extends  CI_Controller{
 	 function __construct(){
 		parent::__construct();
-		$this->load->model('ProductModel');
+		// $this->load->model('ProductModel');
 		$this->load->helper('url');
 	}
 
 	function index(){
-		// $this->load->view('LoginView');
+		echo "titit";
+		$this->load->view('product');
 	}
 	public function addProduct()
 	{

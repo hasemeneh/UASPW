@@ -41,17 +41,17 @@
       <div class="panel panel-success">
         <div class="panel-heading"><h4>Sign in</h4></div>
         <div class="panel-body">	
-			<form class="form-horizontal" method="post" action="">
+			<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/LoginController/do_login';?>">
 				<div class="form-group">
-					<label class="control-label col-sm-offset-1 col-sm-2">Email:</label>
+					<label class="control-label col-sm-offset-1 col-sm-2">Username:</label>
 					<div class="col-sm-8">
-						<input type="email" class="form-control" name="email">
+						<input type="text" class="form-control" name="username">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-offset-1 col-sm-2">Password:</label>
 					<div class="col-sm-8"> 
-						<input type="password" class="form-control" name="pwd">
+						<input type="password" class="form-control" name="password">
 					</div>
 				</div>
 				<div class="form-group"> 
@@ -62,7 +62,7 @@
 					<span class="col-sm-offset-3 col-sm-10"><br>Belum punya akun?, Daftar <a href="signup.php"> disini!</a></span>
 				</div>
 			</form>
-		</div>
+</div>
       </div>
    </div>
  </div>

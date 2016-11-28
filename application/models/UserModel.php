@@ -9,7 +9,7 @@ class UserModel extends CI_Model {
    		$this -> db -> select('id, username,level');
    		$this -> db -> from('user');
    		$this -> db -> where('username', $username);
-	   	$this -> db -> where('password', $password);
+	   	$this -> db -> where('password', md5($password));
 	 
 	   	$query = $this -> db -> get();
 	   	if($query -> num_rows() == 1)

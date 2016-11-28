@@ -7,11 +7,11 @@ class LoginController extends  CI_Controller{
 	}
 
 	function index(){
-		$this->load->view('LoginView');
+		$this->load->view('login');
 	}
-	function signup(){
-		$this->load->view('DaftarView');
-	}
+	// function signup(){
+	// 	$this->load->view('DaftarView');
+	// }
 	public function do_login()
 	{
 		$username = $this->input->post('username');
@@ -20,7 +20,7 @@ class LoginController extends  CI_Controller{
 		// $user_data=$this->UserModel->login($username,$password);
 		if($user_data=$this->UserModel->login($username,$password)){
 			$this->session->set_userdata('logged_in', $user_data);
-			redirect("crud");
+			redirect("LoginController");
 		}else{
 			echo "failed to login please re-login to <a href='".base_url()."index.php/Login'>login</a>";
 		}
