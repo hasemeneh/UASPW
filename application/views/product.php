@@ -38,7 +38,8 @@
 				<?php 
 					if(isset($user_data)){
 						?>
-						<li><a href="<?php echo base_url()."index.php/Login/do_logout"; ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						<li><p class="navbar-text"><span class="glyphicon glyphicon-user"></span> <?php echo "Hello, ".$user_data['username'];?></p></li>
+						<li><a href='<?php echo base_url()."index.php/Login/do_logout"; ?>'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 						<?php
 					}else{
 						?>

@@ -35,7 +35,7 @@
 				<li><a href="contact.php">About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+				<li class="active"><a href="<?php echo base_url()."index.php/Login"; ?>"><span class="glyphicon glyphicon-user"></span> Login</a></li>
 				<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			</ul>
 		</div>
