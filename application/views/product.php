@@ -10,62 +10,23 @@
 </head>
 <body>
 
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>D'Shoes</h1>
-    <p>Mission, Vission & Values</p>
-  </div>
-</div>
 
-<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="240">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="home.php">Logo</a>
-		</div>
-    
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="home.php">Home</a></li>
-				<li class="active"><a href="product.php">Products</a></li>
-				<li><a href="contact.php">About us</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<?php 
-					if(isset($user_data)){
-						?>
-						<li><p class="navbar-text"><span class="glyphicon glyphicon-user"></span> <?php echo "Hello, ".$user_data['username'];?></p></li>
-						<li><a href='<?php echo base_url()."index.php/Login/do_logout"; ?>'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-						<?php
-					}else{
-						?>
-						<li><a href="<?php echo base_url()."index.php/Login"; ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-						<?php
-					}
-				?>
-
-				<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<?php include 'navbar.php';?>
 
 <div class="container-fluid">
 	<div class="row"> 
 		<?php
-			foreach ($products as $product) {
-				// echo "".;
-			
-
+			foreach ($products as $product) {			
+				
 		?>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<div class="panel panel-primary">
 				<div class="panel-heading"><?php echo "".$product->name; ?></div>
-				<div class="panel-body"><img src='<?php echo "".$product->image; ?>' class="img-responsive" style="width:100%" alt="Image"></div>
+				<div class="panel-body">
+					<a data-toggle="modal" data-target='#<?php echo $product->id; ?>Modal'>
+						<img src='<?php echo "".$product->image; ?>' class="img-responsive" style="width:100%">
+					</a>
+				</div>
 				<div class="panel-footer">Rp <?php echo "".$product->price; ?>-
 					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
 					<span class="glyphicon glyphicon-plus-sign"></span>
@@ -75,10 +36,55 @@
 				</div>
 			</div>
 		</div>
-	 	<?php
-	 		}
-	 	?>
-	</div>
+		
+		<!-- Modal -->
+		<div id='<?php echo $product->id; ?>Modal' class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content" style="height:600px;width:600px">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><?php echo "".$product->name; ?></h4>
+					</div>
+					<div class="modal-body" style="height:80%">
+						<table class="table" style="height:100%">
+							<tbody>
+								<tr>
+									<td ><img src='<?php echo "".$product->image; ?>'style="width:350px;height:350px"></td>
+									<td >
+										<label>Deskripsi</label><br> <?php echo $product->description; ?>
+										<br><br>
+										<label>Material</label><br><?php echo $product->material; ?>
+										<br><br>
+										<label>Ukuran</label><br> <?php echo $product->size_availability; ?>
+										<br><br>
+										<label>Harga</label><br>Rp<?php echo $product->price; ?>-
+									</td>							  
+								</tr>							 
+								<tr>
+									<td colspan=2>
+									<a style="float:right;margin-left:5px" href="login.php "type="button" class="btn btn-info btn-sm">
+									<span class="glyphicon glyphicon-plus-sign"></span>
+										<span class="glyphicon glyphicon-shopping-cart "></span>
+										Add to Cart
+									</a>
+									<input style="float:right;width:45px;height:30px" type="number" name="quantity" min="1" value="1">
+									
+								</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+			}
+		?>
+	</div>			
 </div>
 <br>
 
@@ -86,7 +92,5 @@
 	© D'Shoes 2016
 </footer>
 
-
 </body>
-</html>
-
+</html>

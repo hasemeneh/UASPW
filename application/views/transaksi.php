@@ -10,37 +10,7 @@
 </head>
 <body>
 
-<div class="jumbotron">
-	<div class="container text-center">
-		<h1>D'Shoes</h1>
-		<p>Mission, Vission & Values</p>
-	</div>
-</div>
-
-<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="240">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		<a class="navbar-brand" href="home.php">Logo</a>
-		</div>
-		
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="home.php">Home</a></li>
-				<li><a href="product.php">Products</a></li>
-				<li><a href="contact.php">About us</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-				<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<?php include 'navbar.php';?>
 
 <div class="container">  
 	<h2 style="text-align:left">Keranjang Ku!</h2><hr>
@@ -53,7 +23,7 @@
 						<th>No</th>
 						<th>Nama Barang</th>
 						<th>Harga</th>
-						<th></th>
+						<th>Quantitas</th>
 					</tr>
 				</thead>
 					<?php 
@@ -77,7 +47,7 @@
 						<td><?php echo $u?></td>
 						<td><?php echo $u_harga ?></td>
 						<td>
-							<input style="width:45px" type="number" name="quantity" min="1" value="1" readonly>
+							<p>1</p>
 						</td>
 					</tr>
 					<?php }?>

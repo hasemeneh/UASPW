@@ -22,7 +22,8 @@ class Login extends  CI_Controller{
 			$this->session->set_userdata('logged_in', $user_data);
 			redirect("Product");
 		}else{
-			echo "failed to login please re-login to <a href='".base_url()."index.php/Login'>login</a>";
+			$data['gagal'] = 'Invalid Username or Password';
+			$this->load->view('login', $data);
 		}
 		// echo "".$user_data['username'];
 	}
