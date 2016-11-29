@@ -9,9 +9,9 @@ class Login extends  CI_Controller{
 	function index(){
 		$this->load->view('login');
 	}
-	// function signup(){
-	// 	$this->load->view('DaftarView');
-	// }
+	function signup(){
+		$this->load->view('signup');
+	}
 	public function do_login()
 	{
 		$username = $this->input->post('username');
@@ -31,8 +31,8 @@ class Login extends  CI_Controller{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-		$this->UserModel->insert($username,$password,$email);
-		redirect("Product");
+		// $this->UserModel->insert($username,$password,$email);
+		// redirect("Product");
 	}
 	
 	public function do_logout()

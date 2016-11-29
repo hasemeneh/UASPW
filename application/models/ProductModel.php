@@ -13,6 +13,21 @@ class ProductModel extends CI_Model {
 		}
 		return $result_data;
 	} 
+	public function search($q){
+
+		$q = explode(" ", urldecode($q));
+		$this->db->select('id,name,size_availability,price,description,material,image')->distinct()->from('t_product')->order_by('name','asc');
+		foreach ($q as $key) {
+			$this->db->like('name',$key);
+		}
+		$result_data = array();
+		$result = $this->db->get()->result();
+		foreach ($result as $key => $value) {
+			$result_data[$key] = $value;
+		}
+		return $result_data;
+	} 
+	
 	public function replace_data($name,$size_availability,$price,$description,$material,$id='NULL')
 	{
 		
