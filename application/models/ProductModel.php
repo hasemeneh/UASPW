@@ -4,8 +4,8 @@ class ProductModel extends CI_Model {
 	public function __construct(){
 		$this->load->database();
 	}
-	public function get_product($page=1){
-		$this->db->select('id,name,size_availability,price,description,material,image')->from('t_product')->order_by('name','asc')->limit(10,$page);
+	public function get_product(){
+		$this->db->select('id,name,size_availability,price,description,material,image')->from('t_product')->order_by('name','asc')->limit(15);
 		$result_data = array();
 		$result = $this->db->get()->result();
 		foreach ($result as $key => $value) {

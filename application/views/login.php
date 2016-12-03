@@ -9,8 +9,17 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/bootstrap.css">
 </head>
 <body>
-
-<?php include 'navbar.php';?>
+<?php
+	if (isset($user_data)) {
+		header("location: http://localhost/uaspw/index.php/crud/");
+	}
+	
+	$currentPage = 'login';
+	if(isset($user_data)){
+		include 'sidebar.php';
+	}
+	include 'navbar.php';
+?>
 
 <div class="container">
 	<div class="col-sm-offset-3 col-sm-6">
@@ -27,18 +36,26 @@
 						echo "</p>";
 					}
 					?>
+					<?php
+					if (isset($message)) {
+						echo "<p style='margin-left:134px'>";
+						echo $message;
+						echo $pwd;
+						echo "</p>";
+					}
+					?>
 			
 					<div class="form-group">
 						<label class="control-label col-sm-offset-1 col-sm-2">Username:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="username">
+							<input type="text" class="form-control" name="username" required>
 						</div>
 					</div>
 				
 					<div class="form-group">
 						<label class="control-label col-sm-offset-1 col-sm-2">Password:</label>
 						<div class="col-sm-8"> 
-							<input type="password" class="form-control" name="password">
+							<input type="password" class="form-control" name="password" required>
 						</div>
 					</div>
 
@@ -46,7 +63,8 @@
 						<div class="col-sm-offset-3 col-sm-10">
 							<button type="submit" class="btn btn-info">Submit</button>
 						</div>	
-						<span class="col-sm-offset-3 col-sm-10"><br>Belum punya akun?, Daftar <a href="signup.php"> disini!</a></span>
+						<span class="col-sm-offset-3 col-sm-10"><br>Belum punya akun?, Daftar <a href="<?php echo base_url().'index.php/Login/sign_up';?>"> disini!</a></span>
+						<span class="col-sm-offset-3 col-sm-10"><br>Lupa Password?, Klik <a href="<?php echo base_url().'index.php/Login/recover';?>"> disini!</a></span>
 					</div>
 				</form>
 			</div>

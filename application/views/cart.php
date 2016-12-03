@@ -10,7 +10,14 @@
 </head>
 <body>
 
-<?php include 'navbar.php';?>
+<?php 
+	$currentPage = 'cart';
+	if(isset($user_data)){
+		include 'sidebar.php';
+	}
+	include 'navbar.php';
+?>
+
 
 <div class="container">  
 	<h2 style="text-align:left">Keranjang Ku!</h2><hr>

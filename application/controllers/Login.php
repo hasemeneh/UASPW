@@ -16,31 +16,89 @@ class Login extends  CI_Controller{
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		
 		// echo "".$username;
 		// $user_data=$this->UserModel->login($username,$password);
+		
 		if($user_data=$this->UserModel->login($username,$password)){
 			$this->session->set_userdata('logged_in', $user_data);
-			redirect("Product");
+			$this->session->set_userdata($user_data);
+			redirect('crud');
 		}else{
-			$data['gagal'] = 'Invalid Username or Password';
+			$data['gagal'] = 'Username atau Password Salah';
 			$this->load->view('login', $data);
 		}
 		// echo "".$user_data['username'];
 	}
-	public function daftar()
+	
+	public function sign_up(){
+		$this->load->view('signup');
+	}
+	
+	public function recover(){
+		$username = $this->input->post('username');
+		if($username == NULL){
+			$var['cek'] = NULL;
+			$this->load->view('recover',$var);
+		}
+		else{
+			$data = $this->UserModel->get_user($username);
+			if($data == NULL){
+				$teks = array(
+					'error_message' => "Username tidak ada",
+					'cek' => NULL
+				);				
+				$this->load->view('recover',$teks);
+			}
+			else{
+				$teks = array(
+					'password'	=> $data[0]->password,
+					'jawaban'	=> $data[0]->sec_answer,
+					'pertanyaan' => $data[0]->sec_question,
+					'cek' => "a"
+				);
+				$this->load->view('recover',$teks);
+			}
+			
+		}
+	}
+	
+	public function cek_recover(){
+		
+		$answer = $this->input->post('jawaban');
+		$pwd = $this->input->post('password');
+		$sec_answer = $this->input->post('sec_answer');
+		
+		if($answer == $sec_answer){
+			$teks = array(
+				'message' => "Jawaban anda benar, password Anda : ",
+				'pwd' => $pwd
+			);
+			$this->load->view('login',$teks);
+		}
+		else{
+			$teks = array(
+					'message' => "Jawaban Anda salah",
+					'pwd' =>""
+				);
+			$this->load->view('login',$teks);
+		}
+	}
+	
+	public function insert_user()
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
 		$this->UserModel->insert($username,$password,$email);
-		redirect("Product");
+		redirect("login");
 	}
 	
 	public function do_logout()
 	{
 		$this->session->unset_userdata('logged_in');
    		session_destroy();
-   		redirect('Product');
+   		redirect('product');
    	}
 
 

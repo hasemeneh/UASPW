@@ -11,7 +11,13 @@
 <body>
 
 
-<?php include 'navbar.php';?>
+<?php 
+	$currentPage = 'product';
+	if(isset($user_data)){
+		include 'sidebar.php';
+	}
+	include 'navbar.php';
+?>
 
 <div class="container-fluid">
 	<div class="row"> 
@@ -24,15 +30,16 @@
 				<div class="panel-heading"><?php echo "".$product->name; ?></div>
 				<div class="panel-body">
 					<a data-toggle="modal" data-target='#<?php echo $product->id; ?>Modal'>
-						<img src='<?php echo "".$product->image; ?>' class="img-responsive" style="width:100%">
+						<img src='<?php echo "".$product->image; ?>' class="img-responsive" style="width:270px;height:270px;">
 					</a>
 				</div>
 				<div class="panel-footer">Rp <?php echo "".$product->price; ?>-
-					<a href="login.php "type="button" class="btn btn-info btn-sm" style="float:right;height:27px;margin-top:-4px">
-					<span class="glyphicon glyphicon-plus-sign"></span>
-					<span class="glyphicon glyphicon-shopping-cart "></span>
-					Add to Cart
-					</a>		
+					<form class="form-horizontal" method="post" action="<?php echo base_url().'SOK_ISI_SAMA_CONTROLLER';?>">	
+						<button "type="button" class="btn btn-info btn-sm" type="submit" style="float:right;height:27px;margin-top:-23px">
+							<span class="glyphicon glyphicon-plus-sign"></span>
+							<span class="glyphicon glyphicon-shopping-cart "></span>
+							Add to Cart
+						</button>		
 				</div>
 			</div>
 		</div>
@@ -63,13 +70,29 @@
 								</tr>							 
 								<tr>
 									<td colspan=2>
-									<a style="float:right;margin-left:5px" href="login.php "type="button" class="btn btn-info btn-sm">
+									<label style="float:left;margin-top:5px;margin-right:5px" >Size:</label>
+									<select class="form-control" name="size" style="width:80px;float:left">
+										<option>33</option>
+										<option>34</option>
+										<option>35</option>
+										<option>36</option>
+										<option>37</option>
+										<option>38</option>
+										<option>39</option>
+										<option>40</option>
+										<option>41</option>
+										<option>42</option>
+										<option>43</option>
+										<option>44</option>
+										<option>45</option>
+									</select>
+									<button style="float:right;margin-left:5px" type="submit" class="btn btn-info btn-sm">
 									<span class="glyphicon glyphicon-plus-sign"></span>
 										<span class="glyphicon glyphicon-shopping-cart "></span>
 										Add to Cart
-									</a>
+									</button>
 									<input style="float:right;width:45px;height:30px" type="number" name="quantity" min="1" value="1">
-									
+									</form>
 								</td>
 								</tr>
 							</tbody>
@@ -84,7 +107,10 @@
 		<?php
 			}
 		?>
-	</div>			
+	</div>
+	
+	
+	
 </div>
 <br>
 
