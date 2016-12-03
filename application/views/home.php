@@ -58,7 +58,7 @@
 	<div class="w3-display-container w3-content " style="margin-top:68px;margin-bottom:20px">
 		<h3><font face="Warnock">Our Promo !<font></h3>
 		<hr>
-		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/ongkir.webp" >
+		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/ongkir.png" >
 		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/mcd.gif" >
 		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/newyear.jpg">
 		<div class="w3-center w3-section w3-large w3-text-white w3-display-middle" style="width:100%">

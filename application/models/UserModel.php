@@ -16,6 +16,7 @@ class UserModel extends CI_Model {
 	   	{
 		   	$result = $query->result();
 			$result_data = array();
+			$result_data['id'] = $result[0]->id;
 			$result_data['username'] = $result[0]->username;
 			$result_data['level'] = $result[0]->level;
 			$result_data['dp'] = $result[0]->display_name;
@@ -40,6 +41,14 @@ class UserModel extends CI_Model {
    		}else{
    			return NULL;
    		}
+ 	}
+ 	public function addUser($username,$level,$password,$display_name,$email,$sec_question,$sec_answer)
+ 	{
+ 		if($this->db->query("INSERT INTO `user` (`id`, `username`, `password`, `level`, `display_name`, `email`, `sec_question`, `sec_answer`) VALUES (NULL, '$username', '$password', b'1', '$display_name', '$email', '$sec_question', '$sec_answer');")){
+ 			return true;
+ 		}else{
+ 			return false;
+ 		}
  	}
 }
 

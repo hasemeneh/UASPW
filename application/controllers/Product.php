@@ -13,6 +13,15 @@ class Product extends  CI_Controller{
 		$data['user_data'] = $this->session->userdata('logged_in');
 		$this->load->view('product',$data);
 	}
+	function search($q){
+		$product = $this->ProductModel->search($q);
+		// var_dump($product);
+
+		$data = array();
+		$data['products'] = $product;
+		$data['user_data'] = $this->session->userdata('logged_in');
+		$this->load->view('product',$data);
+	}
 	public function addProduct()
 	{
 	}
