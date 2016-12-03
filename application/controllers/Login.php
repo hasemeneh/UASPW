@@ -87,13 +87,10 @@ class Login extends  CI_Controller{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-<<<<<<< HEAD
+		
 		$this->UserModel->insert($username,$password,$email);
 		redirect("login");
-=======
-		// $this->UserModel->insert($username,$password,$email);
-		// redirect("Product");
->>>>>>> origin/master
+		
 	}
 	
 	public function do_logout()

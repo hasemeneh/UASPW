@@ -1,11 +1,12 @@
-
+		
 <div class="jumbotron">
 	<div class="container text-center">
+		<img src='<?php echo base_url();?>assets/gambar/design/dshoes3.png' class="sepatu" style="width:80px;height:80px;">
 		<h1>D'Shoes</h1>
 		<p>Just Buy It!</p>
 	</div>
 </div>
-
+		
 <nav class="navbar navbar-default" data-spy="affix" data-offset-top="240" >
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -41,3 +42,4 @@
 		</div>
 	</div>
 </nav>
+
