@@ -7,7 +7,7 @@
 	</div>
 </div>
 		
-<nav class="navbar navbar-default" data-spy="affix" data-offset-top="240" >
+<nav class="navbar navbar-default" data-spy="affix" data-offset-top="323" >
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
