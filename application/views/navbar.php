@@ -39,9 +39,9 @@
 
 				<li class="<?php if($currentPage =='cart'){echo 'active';}?>"><a href="<?php echo base_url()."index.php/cart"; ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			</ul>
-			<form class="navbar-form navbar-left">
+			<form class="navbar-form navbar-left" action="<?php echo base_url()."index.php/product"; ?>" method="GET">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
+					<input type="text" class="form-control" name="q" placeholder="Search">
 					<div class="input-group-btn">
 						<button class="btn btn-default" type="submit">
 							<i class="glyphicon glyphicon-search"></i>
