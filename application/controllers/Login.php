@@ -91,7 +91,7 @@ class Login extends  CI_Controller{
 		$sec_question = $this->input->post('sec_question');
 		$sec_answer = $this->input->post('sec_answer');
 		$display_name = $this->input->post('display_name');
-		$this->UserModel->addUser($username,0,md5($password),$display_name,$email,$sec_question,$sec_answer);
+		$this->UserModel->addUser($username,2,md5($password),$display_name,$email,$sec_question,$sec_answer);
 		// redirect("Product");
 		
 		// $this->UserModel->insert($username,$password,$email);
