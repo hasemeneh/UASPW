@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Create Data</title>
+	<title>D'Shoes</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/bootstrap.css">
@@ -18,7 +18,7 @@
   <form class="form-horizontal" action="<?php echo base_url().'index.php/crud/create_product'; ?>" method="post">
     
 	<div class="form-group">
-      <label class="control-label col-sm-offset-3 col-sm-1">*Gambar:</label>
+      <label class="control-label col-sm-offset-3 col-sm-1">*Gambar(URL):</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" name="image" required>
       </div>

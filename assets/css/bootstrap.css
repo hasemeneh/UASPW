@@ -27,6 +27,7 @@ body {
     overflow: hidden;
     background-color: #565656;
 	border-color: #565656;
+	border-radius:20px;
     position: fixed;
     bottom: 20%;
 	right:0;

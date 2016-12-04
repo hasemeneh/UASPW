@@ -26,6 +26,7 @@ class crud extends  CI_Controller{
 		}
 	}
 	
+	
 	function create(){
 		$this->load->view('crud/crud_create');
 	}
