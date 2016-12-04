@@ -9,8 +9,16 @@ class TransactionModel extends CI_Model {
 		return $this-> db -> result();
 	} 
 	public function get_current_transaction($user_id){
-		$this-> db -> query("SELECT a.* ,b.`username`,b.`id` FROM `t_transaction`  as a , `user` as b WHERE a.`user_id` = ".$user_id." and b.`id` = ".$user_id." and a.`status_pemesanan` = 0");
-		return $this-> db ->get();
+		// $sql = "SELECT a.* ,b.`username`,b.`id` FROM `t_transaction`  as a , `user` as b WHERE a.`user_id` = ".$user_id." and b.`id` = ".$user_id." and a.`status_pemesanan` = 0";
+
+		// $this-> db -> query($sql);
+		$this-> db -> select('*') -> from('t_transaction') -> where('user_id',$user_id) -> where('status_pemesanan',0);
+		$query = $this-> db ->get();
+		if($query -> num_rows() == 1){
+			return $query->result();
+		}else{
+			return NULL;			
+		}
 	} 
 	public function addTransaction($user_id)
 	{

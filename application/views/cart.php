@@ -47,14 +47,14 @@
 					"Sepatu Gunung"=>"Rp600.000", 
 					"Sendal Gunung"=>"Rp150.000");
 
-					foreach ($cpatu as $u => $u_harga) {
+					foreach ($cart as $key) {
 				?>
 				<tr>
-					<td><?php echo $no ?></td> 
-					<td><?php echo $u?></td>
-					<td><?php echo $u_harga ?></td>
+					<td><?php echo $no ;?></td> 
+					<td><?php echo $key->name;?></td>
+					<td><?php echo $key->price;?></td>
 					<td>
-						<input style="width:45px" type="number" name="quantity" min="1" value="1">
+						<input style="width:45px" readonly type="number" name="quantity" min="1" value="<?php echo $key->quantity;?>">
 						<button type=button class='btn btn-sm btn-danger' data-toggle='collapse' data-target='#collapse<?php echo $no;?>'>Delete</button>
 					</td>
 				</tr>

@@ -64,22 +64,18 @@
 								</tr>							 
 								<tr>
 									<td colspan=2>
-									<form class="form-horizontal" method="post" action="<?php echo base_url().'SOK_ISI_SAMA_CONTROLLER';?>">
+									<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Product/addtocart';?>">
+										<input type="hidden" name="item_id" value="<?php echo $product->id; ?>">
 										<label style="float:left;margin-top:5px;margin-right:5px" >Size:</label>
 										<select class="form-control" name="size" style="width:80px;float:left">
-											<option>33</option>
-											<option>34</option>
-											<option>35</option>
-											<option>36</option>
-											<option>37</option>
-											<option>38</option>
-											<option>39</option>
-											<option>40</option>
-											<option>41</option>
-											<option>42</option>
-											<option>43</option>
-											<option>44</option>
-											<option>45</option>
+										<?php
+											$size = explode('-', $product->size_availability);
+											for ($i=$size[0]; $i <= $size[1]; $i++) { 
+												?>
+												<option><?php echo $i;?></option>
+												<?php
+											}
+										?>
 										</select>
 										<button style="float:right;margin-left:5px" type="submit" class="btn btn-info btn-sm">
 										<span class="glyphicon glyphicon-plus-sign"></span>
@@ -114,4 +110,4 @@
 </footer>
 
 </body>
-</html>
+</html>

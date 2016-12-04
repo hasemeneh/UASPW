@@ -22,9 +22,9 @@ class Product extends  CI_Controller{
 	{
 		$this->load->model('CartModel');
 		$user_data = $this->session->userdata('logged_in');
-		$item_id = 0;
-		$size = 0;
-		$quantity = 0;
+		$item_id = $this->input->post('item_id');
+		$size = $this->input->post('size');
+		$quantity = $this->input->post('quantity');
 		if(isset($user_data)){
 			$transaction = $this->get_current_transaction();
 			$this->CartModel->insert_data($transaction[0]->id,$item_id,$quantity,$size);
@@ -38,12 +38,15 @@ class Product extends  CI_Controller{
 		$user_data = $this->session->userdata('logged_in');
 		$this->load->model('TransactionModel');
 		$transaction = $this->TransactionModel->get_current_transaction($user_data['id']);
-		if($transaction->num_rows() == 0){
+		// var_dump($transaction);
+		if(!isset($transaction)){
+			// var_dump($user_data);
 			$this->TransactionModel->addTransaction($user_data['id']);
-			return $this->get_current_transaction();
+			$transaction = $this->TransactionModel->get_current_transaction($user_data['id']);
+			return $transaction;
 		}
 		else{
-			return $transaction->result();
+			return $transaction;
 		}
 	}
 
@@ -54,7 +57,10 @@ class Product extends  CI_Controller{
 			$data['user_data'] = $user_data;
 			$this->load->model('CartModel');
 			$this->load->model('TransactionModel');
-			$this-> TransactionModel ->get_current_transaction($user_data['id']);
+			$transaction = $this-> TransactionModel -> get_current_transaction($user_data['id']);
+			$cart = $this-> CartModel -> get_cart($transaction[0]->id);
+			$data['transaction'] = $transaction;
+			$data['cart'] = $cart;
 			$this->load->view('cart',$data);
 		}else{
 			redirect('Login');
