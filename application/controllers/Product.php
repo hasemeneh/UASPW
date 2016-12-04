@@ -38,9 +38,7 @@ class Product extends  CI_Controller{
 		$user_data = $this->session->userdata('logged_in');
 		$this->load->model('TransactionModel');
 		$transaction = $this->TransactionModel->get_current_transaction($user_data['id']);
-		// var_dump($transaction);
 		if(!isset($transaction)){
-			// var_dump($user_data);
 			$this->TransactionModel->addTransaction($user_data['id']);
 			$transaction = $this->TransactionModel->get_current_transaction($user_data['id']);
 			return $transaction;

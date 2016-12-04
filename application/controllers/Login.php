@@ -17,12 +17,9 @@ class Login extends  CI_Controller{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		
-		// echo "".$username;
-		// $user_data=$this->UserModel->login($username,$password);
 		
 		if($user_data=$this->UserModel->login($username,md5($password))){
 			$this->session->set_userdata('logged_in', $user_data);
-			// $this->session->set_userdata($user_data);
 			if($user_data['level']==0)
 				redirect('crud');
 			else{
@@ -97,9 +94,6 @@ class Login extends  CI_Controller{
 		$sec_answer = $this->input->post('sec_ans');
 		$display_name = $this->input->post('display_name');
 		$this->UserModel->addUser($username,2,md5($password),$display_name,$email,$sec_question,$sec_answer);
-		// redirect("Product");
-		
-		// $this->UserModel->insert($username,$password,$email);
 		redirect("login");
 		
 	}
