@@ -12,8 +12,14 @@ class crud extends  CI_Controller{
 	//      CRUD
 	
 	function index(){
-		$data['t_product'] = $this-> CrudModel->tampil_data()->result();
-		$this->load->view('crud/crud_view',$data);
+		$user_data = $this->session->userdata('logged_in');
+		if($user_data['level']==0){
+			$data['user_data'] = $user_data;
+			$data['t_product'] = $this-> CrudModel->tampil_data()->result();
+			$this->load->view('crud/crud_view',$data);
+		}else{
+			redirect('Product');
+		}
 	}
 	
 	function create(){

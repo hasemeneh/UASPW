@@ -16,12 +16,18 @@
 			<div class="panel-heading"><h4>Sign Up</h4></div>
 			
 			<div class="panel-body">	
-				<form class="form-horizontal" method="post" action="">
+				<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/daftar';?>">
+					<div class="form-group">
+						<label class="control-label col-sm-3">Fullname:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="display_name"  placeholder="Masukan nama" required>
+						</div>
+					</div>
 				
 					<div class="form-group">
 						<label class="control-label col-sm-3">Username:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="username"  placeholder="Masukan nama/username" required>
+							<input type="text" class="form-control" name="username"  placeholder="Masukan username" required>
 						</div>
 					</div>
 				
@@ -40,16 +46,16 @@
 					</div>
 				
 					<div class="form-group">
-						<label class="control-label col-sm-3">Password Hint:</label>
+						<label class="control-label col-sm-3">Security Question:</label>
 						<div class="col-sm-8"> 
-							<input type="password" class="form-control" name="sec_que" placeholder="Masukan pertanyaan yg bisa kamu ingat" required>
+							<input type="text" class="form-control" name="sec_que" placeholder="Masukan pertanyaan yg bisa kamu ingat" required>
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<label class="control-label col-sm-3">Hint Answer:</label>
+						<label class="control-label col-sm-3">Security Asnwer:</label>
 						<div class="col-sm-8"> 
-							<input type="password" class="form-control" name="sec_ans"  placeholder="Masukan jawaban dari pertanyaan kamu" required>
+							<input type="text" class="form-control" name="sec_ans"  placeholder="Masukan jawaban dari pertanyaan kamu" required>
 						</div>
 					</div>
 					<div class="form-group"> 

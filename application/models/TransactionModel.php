@@ -9,7 +9,7 @@ class TransactionModel extends CI_Model {
 		return $this-> db -> result();
 
 	} 
-	public function addTransaction()
+	public function addTransaction($user_id)
 	{
 		$this-> db -> query("INSERT INTO `t_transaction` (`id`, `user_id`, `total`, `status_pembayaran`, `status_pengiriman`, `status_pemesanan`) VALUES (NULL, '3', '0', 'Not Checked Out', 'Not Checked Out', '0');");
 	}

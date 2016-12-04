@@ -20,10 +20,15 @@ class Login extends  CI_Controller{
 		// echo "".$username;
 		// $user_data=$this->UserModel->login($username,$password);
 		
-		if($user_data=$this->UserModel->login($username,$password)){
+		if($user_data=$this->UserModel->login($username,md5($password))){
 			$this->session->set_userdata('logged_in', $user_data);
-			$this->session->set_userdata($user_data);
-			redirect('crud');
+			// $this->session->set_userdata($user_data);
+			if($user_data['level']==0)
+				redirect('crud');
+			else{
+				redirect('Product');
+			}
+
 		}else{
 			$data['gagal'] = 'Username atau Password Salah';
 			$this->load->view('login', $data);
@@ -82,16 +87,16 @@ class Login extends  CI_Controller{
 		}
 	}
 	
-	public function insert_user()
+	public function daftar()
 	{
 		$username = $this->input->post('username');
 		echo "".$username;
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-		$sec_question = $this->input->post('sec_question');
-		$sec_answer = $this->input->post('sec_answer');
+		$sec_question = $this->input->post('sec_que');
+		$sec_answer = $this->input->post('sec_ans');
 		$display_name = $this->input->post('display_name');
-		$this->UserModel->addUser($username,0,md5($password),$display_name,$email,$sec_question,$sec_answer);
+		$this->UserModel->addUser($username,2,md5($password),$display_name,$email,$sec_question,$sec_answer);
 		// redirect("Product");
 		
 		// $this->UserModel->insert($username,$password,$email);
