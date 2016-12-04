@@ -46,7 +46,7 @@
 						<div class="col-sm-offset-3 col-sm-10">
 							<button type="submit" class="btn btn-info">Submit</button>
 						</div>	
-						<span class="col-sm-offset-3 col-sm-10"><br>Belum punya akun?, Daftar <a href="signup.php"> disini!</a></span>
+						<span class="col-sm-offset-3 col-sm-10"><br>Belum punya akun?, Daftar <a href="<?php echo base_url().'index.php/Login/signup';?>"> disini!</a></span>
 					</div>
 				</form>
 			</div>

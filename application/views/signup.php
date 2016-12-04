@@ -17,14 +17,15 @@
 			<div class="panel-heading"><h4>Sign Up</h4></div>
 			
 			<div class="panel-body">	
-				<form class="form-horizontal" method="post" action="">
+				<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/daftar';?>">
 				
 					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Nama:</label>
+						<label class="control-label col-sm-offset-1 col-sm-2">Username:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="nama">
+							<input type="text" class="form-control" name="username">
 						</div>
 					</div>
+
 				
 					<div class="form-group">
 						<label class="control-label col-sm-offset-1 col-sm-2">Email:</label>
@@ -32,11 +33,31 @@
 							<input type="email" class="form-control" name="email">
 						</div>
 					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-offset-1 col-sm-2">Fullname:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="display_name">
+						</div>
+					</div>
 				
 					<div class="form-group">
 						<label class="control-label col-sm-offset-1 col-sm-2">Password:</label>
 						<div class="col-sm-8"> 
-							<input type="password" class="form-control" name="pwd">
+							<input type="password" class="form-control" name="password">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-offset-1 col-sm-2">Security Question:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="sec_question">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-offset-1 col-sm-2">Security Answer:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="sec_answer">
 						</div>
 					</div>
 				

@@ -30,9 +30,13 @@ class Login extends  CI_Controller{
 	public function daftar()
 	{
 		$username = $this->input->post('username');
+		echo "".$username;
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
-		// $this->UserModel->insert($username,$password,$email);
+		$sec_question = $this->input->post('sec_question');
+		$sec_answer = $this->input->post('sec_answer');
+		$display_name = $this->input->post('display_name');
+		$this->UserModel->addUser($username,0,md5($password),$display_name,$email,$sec_question,$sec_answer);
 		// redirect("Product");
 	}
 	
