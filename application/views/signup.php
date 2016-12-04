@@ -17,10 +17,12 @@
 <div class="container">
 	<div class="col-sm-offset-2 col-sm-8">
 		<div class="panel panel-success">
-			<div class="panel-heading"><h4>Sign Up</h4></div>
 			
-			<div class="panel-body">	
+			<div class="panel-body" style="background-color:#f4f9b3;border-radius: 25px;">	
 				<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/daftar';?>">
+					<h3 style="text-align:center">Sign Up</h3>
+					<hr>
+					
 					<div class="form-group">
 						<label class="control-label col-sm-3">Fullname:</label>
 						<div class="col-sm-8">
@@ -73,12 +75,6 @@
 	</div>
  </div>
 <br>
-
-
-
-<footer class="container-fluid text-center">
-	© D'Shoes 2016
-</footer>
 
 </body>
 </html>

@@ -24,11 +24,12 @@
 <div class="container">
 	<div class="col-sm-offset-3 col-sm-6">
 		<div class="panel panel-success">
-			<div class="panel-heading"><h4>Sign In</h4></div>
 			
-			<div class="panel-body">	
+			<div class="panel-body" style="background-color:#b6f497;border-radius: 25px;">	
 				<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/do_login';?>">
-					
+					<h3 style='text-align:center;'>Sign In</h3>
+					<hr>
+						
 					<?php
 					if (isset($gagal)) {
 						echo "<p style='margin-left:134px'>";

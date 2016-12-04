@@ -53,7 +53,7 @@ body {
   }
 
   .affix + .container-fluid {
-      padding-top: 80px;
+      padding-top: 75px;
   }
   
   .myAbout{
@@ -5793,7 +5793,6 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #C09F80;
 }
 .panel-success {
-  border-color: #d6e9c6;
 }
 .panel-success > .panel-heading {
   color: #3c763d;
