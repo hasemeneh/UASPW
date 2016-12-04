@@ -9,6 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/bootstrap.css"></head>
 <body>
 
+<?php
+	$currentPage="";
+	include 'navbar.php';
+?>
 
 <div class="container">
 	<div class="col-sm-offset-2 col-sm-8">
