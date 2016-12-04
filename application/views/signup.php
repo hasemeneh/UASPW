@@ -9,58 +9,49 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/bootstrap.css"></head>
 <body>
 
-<?php include 'navbar.php';?>
 
 <div class="container">
-	<div class="col-sm-offset-3 col-sm-6">
+	<div class="col-sm-offset-2 col-sm-8">
 		<div class="panel panel-success">
 			<div class="panel-heading"><h4>Sign Up</h4></div>
 			
 			<div class="panel-body">	
-				<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/daftar';?>">
+				<form class="form-horizontal" method="post" action="">
 				
 					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Username:</label>
+						<label class="control-label col-sm-3">Username:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="username">
-						</div>
-					</div>
-
-				
-					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Email:</label>
-						<div class="col-sm-8">
-							<input type="email" class="form-control" name="email">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Fullname:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="display_name">
+							<input type="text" class="form-control" name="username"  placeholder="Masukan nama/username" required>
 						</div>
 					</div>
 				
 					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Password:</label>
+						<label class="control-label col-sm-3">Email:</label>
+						<div class="col-sm-8">
+							<input type="email" class="form-control" name="email"  placeholder="Masukan email@email.com" required>
+						</div>
+					</div>
+				
+					<div class="form-group">
+						<label class="control-label col-sm-3">Password:</label>
 						<div class="col-sm-8"> 
-							<input type="password" class="form-control" name="password">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Security Question:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="sec_question">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-offset-1 col-sm-2">Security Answer:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="sec_answer">
+							<input type="password" class="form-control" name="password"  placeholder="Masukan Password" required>
 						</div>
 					</div>
 				
+					<div class="form-group">
+						<label class="control-label col-sm-3">Password Hint:</label>
+						<div class="col-sm-8"> 
+							<input type="password" class="form-control" name="sec_que" placeholder="Masukan pertanyaan yg bisa kamu ingat" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-3">Hint Answer:</label>
+						<div class="col-sm-8"> 
+							<input type="password" class="form-control" name="sec_ans"  placeholder="Masukan jawaban dari pertanyaan kamu" required>
+						</div>
+					</div>
 					<div class="form-group"> 
 						<div class="col-sm-offset-3 col-sm-10">
 							<button type="submit" class="btn btn-green">Submit</button>

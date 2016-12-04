@@ -6,10 +6,10 @@ class UserModel extends CI_Model {
 	}
 	public function login($username, $password)
 	{
-   		$this -> db -> select('id, username,level');
+   		$this -> db -> select('id, username,level,display_name');
    		$this -> db -> from('user');
    		$this -> db -> where('username', $username);
-	   	$this -> db -> where('password', md5($password));
+	   	$this -> db -> where('password', $password);
 	 
 	   	$query = $this -> db -> get();
 	   	if($query -> num_rows() == 1)
@@ -19,6 +19,8 @@ class UserModel extends CI_Model {
 			$result_data['id'] = $result[0]->id;
 			$result_data['username'] = $result[0]->username;
 			$result_data['level'] = $result[0]->level;
+			$result_data['dp'] = $result[0]->display_name;
+			
 			return $result_data;
 		}
 	   	else
@@ -29,15 +31,15 @@ class UserModel extends CI_Model {
 
  	public function get_user($username)
  	{
- 		$this -> db -> select('id,username,level');
+ 		$this -> db -> select('id,username,password,level,sec_question,sec_answer');
  		$this -> db -> from('user');
    		$this -> db -> where('username', $username);
-   		$query -> db -> get();
+   		$query = $this -> db -> get();
    		if($query -> num_rows() == 1)
    		{
    			return $query->result();
    		}else{
-   			return false;
+   			return NULL;
    		}
  	}
  	public function addUser($username,$level,$password,$display_name,$email,$sec_question,$sec_answer)
