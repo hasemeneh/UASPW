@@ -33,13 +33,7 @@
 						<img src='<?php echo "".$product->image; ?>' class="img-responsive" style="width:270px;height:270px;">
 					</a>
 				</div>
-				<div class="panel-footer">Rp <?php echo "".$product->price; ?>-
-					<form class="form-horizontal" method="post" action="<?php echo base_url().'SOK_ISI_SAMA_CONTROLLER';?>">	
-						<button "type="button" class="btn btn-info btn-sm" type="submit" style="float:right;height:27px;margin-top:-23px">
-							<span class="glyphicon glyphicon-plus-sign"></span>
-							<span class="glyphicon glyphicon-shopping-cart "></span>
-							Add to Cart
-						</button>		
+				<div class="panel-footer">Rp <?php echo "".$product->price; ?>-		
 				</div>
 			</div>
 		</div>
@@ -70,28 +64,29 @@
 								</tr>							 
 								<tr>
 									<td colspan=2>
-									<label style="float:left;margin-top:5px;margin-right:5px" >Size:</label>
-									<select class="form-control" name="size" style="width:80px;float:left">
-										<option>33</option>
-										<option>34</option>
-										<option>35</option>
-										<option>36</option>
-										<option>37</option>
-										<option>38</option>
-										<option>39</option>
-										<option>40</option>
-										<option>41</option>
-										<option>42</option>
-										<option>43</option>
-										<option>44</option>
-										<option>45</option>
-									</select>
-									<button style="float:right;margin-left:5px" type="submit" class="btn btn-info btn-sm">
-									<span class="glyphicon glyphicon-plus-sign"></span>
-										<span class="glyphicon glyphicon-shopping-cart "></span>
-										Add to Cart
-									</button>
-									<input style="float:right;width:45px;height:30px" type="number" name="quantity" min="1" value="1">
+									<form class="form-horizontal" method="post" action="<?php echo base_url().'SOK_ISI_SAMA_CONTROLLER';?>">
+										<label style="float:left;margin-top:5px;margin-right:5px" >Size:</label>
+										<select class="form-control" name="size" style="width:80px;float:left">
+											<option>33</option>
+											<option>34</option>
+											<option>35</option>
+											<option>36</option>
+											<option>37</option>
+											<option>38</option>
+											<option>39</option>
+											<option>40</option>
+											<option>41</option>
+											<option>42</option>
+											<option>43</option>
+											<option>44</option>
+											<option>45</option>
+										</select>
+										<button style="float:right;margin-left:5px" type="submit" class="btn btn-info btn-sm">
+										<span class="glyphicon glyphicon-plus-sign"></span>
+											<span class="glyphicon glyphicon-shopping-cart "></span>
+											Add to Cart
+										</button>
+										<input style="float:right;width:45px;height:30px" type="number" name="quantity" min="1" value="1">
 									</form>
 								</td>
 								</tr>

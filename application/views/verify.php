@@ -19,25 +19,46 @@
 		<div class="panel panel-success">
 			
 			<div class="panel-body" style="background-color:#ffb7ca;border-radius: 25px;padding-bottom:29px">	
-			<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/verify';?>">
+			<form class="form-horizontal" method="post" action="<?php echo base_url().'index.php/Login/check_answer';?>">
 	
 				<h3 style='text-align:center;'>Password Recovery</h3>
 				<hr>
-				
 				<?php
-					if (isset($pesan)){
+					if (isset($pesan)) {
 						echo "<p style='margin-left:89px'>";
 						echo $pesan;
 						echo "</p>";
 					}
 				?>	
-			
+				
 				<div class="form-group">
+					
 					<div class="col-sm-6 col-sm-offset-2">
-						<label class="control-label">Masukan Username Anda:</label>
+						<label class="control-label">Pertanyaan Keamanan Anda:</label>
+					</div>
+					
+					<?php
+						echo "<label style='margin-left:104px'><br>";
+						echo $pertanyaan;
+						echo "</label>"
+					?>
+					
+					<div class="col-sm-6 col-sm-offset-2">
+						<label class="control-label">Masukan Jawaban Anda:</label>
 					</div>
 					<div class="col-sm-offset-2 col-sm-8">
-						<br><input type="text" class="form-control" name="username" required>
+						<br><input type="hidden" class="form-control" name="username" value="<?php echo $username ?>" required>
+						<input type="text" class="form-control" name="answer" required>
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+					<div class="col-sm-8 col-sm-offset-2">
+						<label class="control-label">Masukan Password Anda Yang Baru:</label>
+					</div>
+					<div class="col-sm-offset-2 col-sm-8">
+						<br><input type="password" class="form-control" name="pwd" required>
 					</div>
 				</div>
 				
@@ -53,11 +74,6 @@
  </div>
 <br>
 
-
-
-<footer class="container-fluid text-center">
-	© D'Shoes 2016
-</footer>
 
 </body>
 </html>
