@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>D'Shoes</title>
+	<title>Data Transaksi</title>
 	<script src="<?php echo base_url();?>/assets/js/jquery.min.js"></script>
 	<script src="<?php echo base_url();?>/assets/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/bootstrap.css">
@@ -9,17 +9,11 @@
 <body>
 
 <?php 
-	include 'sidebar.php';
 	include 'navbar.php';
 ?>
 
 <div class="container">  
-<h2 style="text-align:left">Data Produk</h2><hr>
-		
-<div class="col-sm-12" style="margin-left:-15px">
-	<?php echo anchor('crud/create','<button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Tambah Produk</button>');?>
-<br><br></div>
-
+<h2 style="text-align:left">Data Transaksi</h2><hr>
  <div class ="row">
   <div class="col-lg-12" style="padding-left: 0px;padding-right: 0px;">
 	<table class="table table-striped table-hover" style="">

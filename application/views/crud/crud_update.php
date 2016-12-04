@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Update Data</title>
+	<title>D'Shoes</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/bootstrap.css">
@@ -15,7 +15,7 @@
 ?>
 
 
-<h3 class="col-sm-offset-5">Update/Edit Data</h3><br>
+<h3 class="col-sm-offset-5">Update/Edit Produk</h3><br>
 
 <?php foreach($t_product as $u){ ?>
 	<form class="form-horizontal" action="<?php echo base_url().'index.php/crud/update'; ?>" method="post">
