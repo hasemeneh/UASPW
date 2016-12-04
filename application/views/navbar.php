@@ -37,7 +37,7 @@
 					}
 				?>
 
-				<li class="<?php if($currentPage =='cart'){echo 'active';}?>"><a href="<?php echo base_url()."index.php/cart"; ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+				<li class="<?php if($currentPage =='cart'){echo 'active';}?>"><a href="<?php echo base_url()."index.php/product/cart"; ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			</ul>
 			<form class="navbar-form navbar-left" action="<?php echo base_url()."index.php/product"; ?>" method="GET">
 				<div class="input-group">

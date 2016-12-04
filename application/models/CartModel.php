@@ -4,18 +4,14 @@ class CartModel extends CI_Model {
 	public function __construct(){
 		$this->load->database();
 	}
-	public function get_Timelines($month,$days,$year){
-		$this->db->select('nama_proker,description,badan,tanggal')->from('timeline')->where("tanggal BETWEEN '$year-$month-1' AND '$year-$month-$days'");
-		$result_data = array();
+	public function get_cart($transaction_id){
+		$this->db->select('id,item_id,transaction_id,quantity,size')->from('t_cart')->where("transaction_id",$transaction_id);
 		$result = $this->db->get()->result();
-		foreach ($result as $key => $value) {
-			$result_data[$key] = $value;
-		}
-		return $result_data;
+		return $result;
 	} 
-	public function insertData($nama_proker,$description,$badan,$tanggal)
+	public function insert_data($transaction_id,$item_id,$quantity,$size)
 	{
-		$this->db->query("INSERT INTO `timeline` (`id_proker`, `nama_proker`, `description`, `badan`, `tanggal`) VALUES (NULL, '$nama_proker', '$description', '$badan', '$tanggal');");
+		$this->db->query("INSERT INTO `t_cart` (`transaction_id`, `item_id`, `quantity`, `id`, `size`) VALUES ('$transaction_id', '$item_id', '$quantity', NULL, '$size');");
 
 	}
 }
