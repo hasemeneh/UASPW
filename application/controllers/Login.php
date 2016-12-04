@@ -9,7 +9,7 @@ class Login extends  CI_Controller{
 	function index(){
 		$this->load->view('login');
 	}
-	function signup(){
+	function sign_up(){
 		$this->load->view('signup');
 	}
 	public function do_login()
@@ -94,7 +94,7 @@ class Login extends  CI_Controller{
 		$this->UserModel->addUser($username,0,md5($password),$display_name,$email,$sec_question,$sec_answer);
 		// redirect("Product");
 		
-		$this->UserModel->insert($username,$password,$email);
+		// $this->UserModel->insert($username,$password,$email);
 		redirect("login");
 		
 	}
