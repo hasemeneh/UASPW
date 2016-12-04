@@ -31,17 +31,9 @@
 					<hr>
 						
 					<?php
-					if (isset($gagal)) {
+					if (isset($pesan)) {
 						echo "<p style='margin-left:134px'>";
-						echo $gagal;
-						echo "</p>";
-					}
-					?>
-					<?php
-					if (isset($message)) {
-						echo "<p style='margin-left:134px'>";
-						echo $message;
-						echo $pwd;
+						echo $pesan;
 						echo "</p>";
 					}
 					?>

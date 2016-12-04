@@ -30,7 +30,7 @@ class Login extends  CI_Controller{
 			}
 
 		}else{
-			$data['gagal'] = 'Username atau Password Salah';
+			$data['pesan'] = 'Username atau Password Salah';
 			$this->load->view('login', $data);
 		}
 		// echo "".$user_data['username'];
@@ -38,55 +38,55 @@ class Login extends  CI_Controller{
 
 	
 	public function recover(){
+		$this->load->view('recover');		
+	}
+	
+	public function verify(){
 		$username = $this->input->post('username');
-		if($username == NULL){
-			$var['cek'] = NULL;
-			$this->load->view('recover',$var);
+		if($check=$this->UserModel->get_user($username)){
+			$data = array(
+			'pertanyaan' => $check[0]->sec_question,
+			'username' => $check[0]->username
+			);	
+			$this->load->view('verify',$data);
 		}
 		else{
-			$data = $this->UserModel->get_user($username);
-			if($data == NULL){
-				$teks = array(
-					'error_message' => "Username tidak ada",
-					'cek' => NULL
-				);				
-				$this->load->view('recover',$teks);
-			}
-			else{
-				$teks = array(
-					'password'	=> $data[0]->password,
-					'jawaban'	=> $data[0]->sec_answer,
-					'pertanyaan' => $data[0]->sec_question,
-					'cek' => "a"
-				);
-				$this->load->view('recover',$teks);
-			}
+			$data['pesan'] = 'Username Tidak Terdaftar';
+			$this->load->view('recover', $data);
+		}
+	}
+	
+	public function check_answer(){
+		$answer = $this->input->post('answer');
+		$newPwd = $this->input->post('pwd');
+		$username = $this->input->post('username');
+		
+		$check=$this->UserModel->get_user($username);
+		if($answer == $check[0]->sec_answer){
 			
-		}
-	}
-	
-	public function cek_recover(){
-		
-		$answer = $this->input->post('jawaban');
-		$pwd = $this->input->post('password');
-		$sec_answer = $this->input->post('sec_answer');
-		
-		if($answer == $sec_answer){
-			$teks = array(
-				'message' => "Jawaban anda benar, password Anda : ",
-				'pwd' => $pwd
+			$where['sec_answer']=$answer;
+			$update = array(
+				'password' => md5($newPwd)
 			);
-			$this->load->view('login',$teks);
+
+			$this-> UserModel->change_password($where,$update,'user');
+				
+			$data = array(
+			'pesan' => "Password Anda Sudah Diperbaharui"
+			);
+	
+			$this->load->view('login',$data);
 		}
 		else{
-			$teks = array(
-					'message' => "Jawaban Anda salah",
-					'pwd' =>""
-				);
-			$this->load->view('login',$teks);
+			$data = array(
+				'pertanyaan' => $check[0]->sec_question,
+				'username' => $check[0]->username,
+				'pesan' => "Jawaban Anda Salah Password Anda Tidak Diperbaharui"
+			);
+			$this->load->view('verify', $data);
 		}
 	}
-	
+
 	public function daftar()
 	{
 		$username = $this->input->post('username');

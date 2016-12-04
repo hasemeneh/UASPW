@@ -28,7 +28,14 @@ class UserModel extends CI_Model {
 	   	  return false;
 	   	}
  	}
-
+	
+	public function change_password($where,$data,$table)
+ 	{	
+		$this->db->where($where);
+		$this->db->update($table,$data);
+ 	}
+	
+	
  	public function get_user($username)
  	{
  		$this -> db -> select('id,username,password,level,sec_question,sec_answer');
@@ -42,6 +49,7 @@ class UserModel extends CI_Model {
    			return NULL;
    		}
  	}
+	
  	public function addUser($username,$level,$password,$display_name,$email,$sec_question,$sec_answer)
  	{
  		if($this->db->query("INSERT INTO `user` (`id`, `username`, `password`, `level`, `display_name`, `email`, `sec_question`, `sec_answer`) VALUES (NULL, '$username', '$password', b'1', '$display_name', '$email', '$sec_question', '$sec_answer');")){
