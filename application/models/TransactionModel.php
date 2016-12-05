@@ -24,7 +24,10 @@ class TransactionModel extends CI_Model {
 	{
 		$this-> db -> query("INSERT INTO `t_transaction` (`id`, `user_id`, `total`, `status_pembayaran`, `status_pengiriman`, `status_pemesanan`) VALUES (NULL, '$user_id', '0', 'Not Checked Out', 'Not Checked Out', '0');");
 	}
-	
+	public function verifytransaction($id,$alamat_pengiriman)
+	{
+		$this->db->query("UPDATE `t_transaction` SET `status_pembayaran` = 'Waiting For Payemnt', `status_pemesanan` = '1', `alamat_pengiriman` = '$alamat_pengiriman' WHERE `t_transaction`.`id` = ".$id.";");
+	}
 }
 
 

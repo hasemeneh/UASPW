@@ -62,7 +62,10 @@
 					<td colspan=5 style="padding:0px">
 					<div id="collapse<?php echo $no;?>" style="background-color:#f2dede" class="panel-collapse collapse">
 						<div class="panel-body ">Are you sure want to delete the data?
-							<button type=button class='btn btn-danger'>Yes</button>
+							<form action="<?php echo base_url().'index.php/Product/deletefromcart';?>"  method="POST">
+								<input type="hidden" name="id" value="<?php echo $key->id;?>">
+								<button type="submit" class='btn btn-danger'>Yes</button>
+							</form>							
 							<button type=button class='btn btn-default' data-toggle='collapse' data-target='#collapse<?php echo $no++;?>'>No</button>
 						</div>
 					</div>
@@ -70,11 +73,30 @@
 				</tr>
 				<?php }?>
 				<tr>
-					<td>Total</td> 
-					<td></td>
-					<td>Rp12345678</td>
-					<td><a href="transaksi.php" type=button class='col-sm-12 btn btn-success'>Buy</a></td>
+				<?php
+					if(isset($transaction)){
+						?>
+						<td>Total</td> 
+						<td></td>
+						<td>Rp12345678</td>
+						<td>
+						<button type=button class='col-sm-12 btn btn-sm btn-success' data-toggle='collapse' data-target='#collapse999'>Buy</button>
+						<div id="collapse999" style="background-color:rgb(183, 239, 179);" class="panel-collapse collapse">
+							<div class="panel-body ">Are you sure want to check out the cart?
+								<form action="<?php echo base_url().'index.php/Product/verifytransaction';?>"  method="POST">
+									<input type="hidden" name="id" value="<?php echo $transaction[0]->id;?>">
+									<input type="text" name="alamat" placeholder="Masukan Alamat Anda" required>
+									<button type="submit" class='btn btn-danger'>Yes</button>
+								</form>							
+								<button type=button class='btn btn-default' data-toggle='collapse' data-target='#collapse999'>No</button>
+							</div>
+						</div>
+						</td>
+						<?php
+					}
+				?>
 				</tr>
+
 			</table>
 		</div> 
 	</div>

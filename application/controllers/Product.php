@@ -33,6 +33,24 @@ class Product extends  CI_Controller{
 			redirect('Login');
 		}
 	}
+	public function deletefromcart()
+	{
+		$this->load->model('CartModel');
+		$id = $this->input->post('id');
+		$this -> CartModel ->delete_data($id);
+		redirect('Product/cart');
+		
+	}
+	public function verifytransaction()
+	{
+		$this->load->model('TransactionModel');
+		$id = $this->input->post('id');
+		$alamat = $this->input->post('alamat');
+		$this -> TransactionModel ->verifytransaction($id,$alamat);
+		redirect('Product');
+		
+	}
+
 	public function get_current_transaction()
 	{
 		$user_data = $this->session->userdata('logged_in');
@@ -56,9 +74,12 @@ class Product extends  CI_Controller{
 			$this->load->model('CartModel');
 			$this->load->model('TransactionModel');
 			$transaction = $this-> TransactionModel -> get_current_transaction($user_data['id']);
-			$cart = $this-> CartModel -> get_cart($transaction[0]->id);
-			$data['transaction'] = $transaction;
-			$data['cart'] = $cart;
+			$data['cart'] = array();
+			if($transaction!=NULL){
+				$cart = $this-> CartModel -> get_cart($transaction[0]->id);
+				$data['transaction'] = $transaction;
+				$data['cart'] = $cart;
+			}
 			$this->load->view('cart',$data);
 		}else{
 			redirect('Login');
