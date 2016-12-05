@@ -5,8 +5,8 @@ class TransactionModel extends CI_Model {
 		$this->load->database();
 	}
 	public function get_transaction($user_id){
-		$this-> db -> query("SELECT a.* ,b.`username`,b.`id` FROM `t_transaction`  as a , `user` as b WHERE a.`user_id` = ".$user_id." and b.`id` = ".$user_id."")->get();
-		return $this-> db -> result();
+		$result = $this-> db -> select('*') -> from('t_transaction') -> where('user_id',$user_id)->get()->result();
+		return $result;
 	} 
 	public function get_current_transaction($user_id){
 		// $sql = "SELECT a.* ,b.`username`,b.`id` FROM `t_transaction`  as a , `user` as b WHERE a.`user_id` = ".$user_id." and b.`id` = ".$user_id." and a.`status_pemesanan` = 0";
@@ -28,6 +28,15 @@ class TransactionModel extends CI_Model {
 	{
 		$this->db->query("UPDATE `t_transaction` SET `status_pembayaran` = 'Waiting For Payemnt', `status_pemesanan` = '1', `alamat_pengiriman` = '$alamat_pengiriman' WHERE `t_transaction`.`id` = ".$id.";");
 	}
+	public function update_payment($id)
+	{
+		$this->db->query("UPDATE `t_transaction` SET `status_pembayaran` = 'Payment Received', `status_pemesanan` = '1' WHERE `t_transaction`.`id` = ".$id.";");
+	}
+	public function update_shipped($id)
+	{
+		$this->db->query("UPDATE `t_transaction` SET `status_pengiriman` = 'Shipped', `status_pemesanan` = '1' WHERE `t_transaction`.`id` = ".$id.";");
+	}
+	
 }
 
 

@@ -26,7 +26,16 @@ class crud extends  CI_Controller{
 		}
 	}
 	
+	function transaction(){
+		$this->load->model('TransactionModel');
+		$user_data = $this->session->userdata('logged_in');
+		$transaction = $this->TransactionModel->get_transaction($user_data['id']);
+		$data['user_data'] = $user_data;
+		$data['transaction'] = $transaction;
+		$this->load->view('crud/userTransaction',$data);
+	}
 	
+		
 	function create(){
 		$this->load->view('crud/crud_create');
 	}
@@ -87,6 +96,17 @@ class crud extends  CI_Controller{
 		$this-> CrudModel->hapus_data($where,'t_product');
 		redirect('crud');
 	}
+	function transaction_Shipped($id){
+		$this->load->model('TransactionModel');
+		$this->TransactionModel->update_shipped($id);
+		redirect('crud/transaction');
+	}
+	function transaction_Payment($id){
+		$this->load->model('TransactionModel');
+		$this->TransactionModel->update_payment($id);
+		redirect('crud/transaction');
+	}
+
 }		
 ?>
 

@@ -20,40 +20,30 @@
 		<thead style="background-color:#6da4e8">
 		<tr>
 			<th>No</th>
-			<th>Gambar</th>
-			<th>Nama Produk</th>
-			<th>Ukuran</th>
-			<th>Harga</th>
-			<th>Material</th>
-			<th>Deskripsi Produk</th>
+			<th>Id Transaksi</th>
+			<th>Total</th>
+			<th>Id User</th>
+			<th>Status Pembayaran</th>
+			<th>Status Pengiriman</th>
+			<th>Alamat</th>
 			<th>Aksi </th>
 		</tr>
 		</thead>
 		<?php 
 			$no=1;
-			foreach ($t_product as $u) {
+			foreach ($transaction as $u) {
 		?>
 		<tr>
 			<td><?php echo $no ?></td> 
-			<td><?php echo $u->image ?></td>
-			<td><?php echo $u->name ?></td>
-			<td><?php echo $u->size_availability ?></td>
-			<td><?php echo $u->price ?></td>
-			<td><?php echo $u->material ?></td>
-			<td><?php echo $u->description ?></td>
+			<td><?php echo $u->id ?></td>
+			<td><?php echo $u->total ?></td>
+			<td><?php echo $u->user_id ?></td>
+			<td><?php echo $u->status_pembayaran ?></td>
+			<td><?php echo $u->status_pengiriman ?></td>
+			<td><?php echo $u->alamat_pengiriman ?></td>
 			<td>
-				<?php echo anchor('crud/edit/'.$u->id,'<button class="btn btn-sm btn-primary" style="margin-bottom:5px">Edit</button>');?>
-				<button type=button class='btn btn-sm btn-danger' data-toggle='collapse' data-target='#collapse<?php echo $no;?>'>Delete</button>
-			</td>
-		</tr>
-		<tr >
-			<td colspan=8 style="padding:0px">
-			<div id="collapse<?php echo $no;?>" style="background-color:#f2dede" class="panel-collapse collapse">
-				<div class="panel-body ">Are you sure want to delete the data?
-					<?php echo anchor('crud/hapus/'.$u->id,'<button class="btn btn-sm btn-danger">Yes</button>');?>
-					<button type=button class='btn btn-default' data-toggle='collapse' data-target='#collapse<?php echo $no++;?>'>No</button>
-				</div>
-			</div>
+				<?php echo anchor('crud/transaction_Shipped/'.$u->id,'<button class="btn btn-sm btn-success" value="Shipped" style="margin-bottom:5px">Terkirim</button>');?>
+				<?php echo anchor('crud/transaction_Payment/'.$u->id,'<button class="btn btn-sm btn-success" value="Payment Received" style="margin-bottom:5px">Terkonfirmasi</button>');?>
 			</td>
 		</tr>
 		<?php } ?>		

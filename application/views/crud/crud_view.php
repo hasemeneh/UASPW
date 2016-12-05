@@ -16,8 +16,12 @@
 <div class="container">  
 <h2 style="text-align:left">Data Produk</h2><hr>
 		
-<div class="col-sm-12" style="margin-left:-15px">
+<div class="col-sm-2" style="margin-left:-15px;margin-right:5px;float:left">
 	<?php echo anchor('crud/create','<button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Tambah Produk</button>');?>
+</div>
+
+<div class="col-sm-2" style="margin-left:-15px;">
+	<?php echo anchor('crud/transaction','<button class="btn btn-success"></i> Konfirmasi Pemesanan</button>');?>
 <br><br></div>
 
  <div class ="row">
