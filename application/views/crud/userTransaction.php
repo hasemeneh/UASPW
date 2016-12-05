@@ -9,6 +9,8 @@
 <body>
 
 <?php 
+
+	include 'sidebar.php';
 	include 'navbar.php';
 ?>
 
@@ -48,6 +50,7 @@
 		</tr>
 		<?php } ?>		
 	</table>
+	<?php echo anchor('crud','<button class="btn btn-sm btn-success" style="margin-bottom:5px">Back</button>');?>
 	</div> 
  </div>
 </div>

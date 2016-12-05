@@ -74,7 +74,7 @@
 				<?php }?>
 				<tr>
 				<?php
-					if(isset($transaction)){
+					if($no > 1){
 						?>
 						<td>Total</td> 
 						<td></td>

@@ -4,7 +4,11 @@ class TransactionModel extends CI_Model {
 	public function __construct(){
 		$this->load->database();
 	}
-	public function get_transaction($user_id){
+	public function get_transaction(){
+		$result = $this-> db -> select('*') -> from('t_transaction')->get()->result();
+		return $result;
+	} 
+	public function get_transaction_by_user_id($user_id){
 		$result = $this-> db -> select('*') -> from('t_transaction') -> where('user_id',$user_id)->get()->result();
 		return $result;
 	} 
