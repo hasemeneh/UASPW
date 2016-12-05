@@ -46,7 +46,7 @@
 					"Kaos Kaki"=>"Rp50.000", 
 					"Sepatu Gunung"=>"Rp600.000", 
 					"Sendal Gunung"=>"Rp150.000");
-
+					$total =0;
 					foreach ($cart as $key) {
 				?>
 				<tr>
@@ -71,14 +71,17 @@
 					</div>
 					</td>
 				</tr>
-				<?php }?>
+				<?php 
+					$total=$total+($key->price*$key->quantity);
+				
+				}?>
 				<tr>
 				<?php
 					if($no > 1){
 						?>
 						<td>Total</td> 
 						<td></td>
-						<td>Rp12345678</td>
+						<td>Rp <?php echo $total;?></td>
 						<td>
 						<button type=button class='col-sm-12 btn btn-sm btn-success' data-toggle='collapse' data-target='#collapse999'>Buy</button>
 						
@@ -90,6 +93,7 @@
 								<div class="panel-body ">Are you sure want to check out the cart?
 									<form action="<?php echo base_url().'index.php/Product/verifytransaction';?>"  method="POST">
 										<input type="hidden" name="id" value="<?php echo $transaction[0]->id;?>">
+										<input type="hidden" name="total" value="<?php echo $total;?>">
 											<div class="form-group">
 												<textarea class="form-control"  rows="5" cols="12" type="text" name="alamat" placeholder="Masukan Alamat Anda" required></textarea>
 											</div>

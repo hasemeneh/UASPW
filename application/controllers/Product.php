@@ -46,7 +46,8 @@ class Product extends  CI_Controller{
 		$this->load->model('TransactionModel');
 		$id = $this->input->post('id');
 		$alamat = $this->input->post('alamat');
-		$this -> TransactionModel ->verifytransaction($id,$alamat);
+		$total = $this->input->post('total');
+		$this -> TransactionModel ->verifytransaction($id,$alamat,$total);
 		redirect('Product');
 		
 	}

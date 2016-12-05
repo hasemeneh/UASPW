@@ -14,7 +14,7 @@
 ?>
 
 <div class="container">  
-<h2 style="text-align:left">Data Transaksi</h2><hr>
+<h2 style="text-align:left">D'Shoes</h2><hr>
  <div class ="row">
   <div class="col-lg-12" style="padding-left: 0px;padding-right: 0px;">
 	<table class="table table-striped table-hover" style="">
@@ -42,7 +42,6 @@
 		</tr>
 		<?php } ?>		
 	</table>
-	<?php echo anchor('crud','<button class="btn btn-sm btn-success" style="margin-bottom:5px">Back</button>');?>
 	</div> 
  </div>
 </div>
