@@ -72,7 +72,7 @@
 		<hr>
 		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/ongkir.png" >
 		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/newyear.png" >
-		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/newyear.jpg">
+		<img class="mySlides" style="width:1001px;height:351px;" src="<?php echo base_url();?>/assets/gambar/promo/mcd.png">
 		<div class="w3-center w3-section w3-large w3-text-white w3-display-middle" style="width:100%">
 			<div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
 			<div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
